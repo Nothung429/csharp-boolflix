@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace csharp_boolflix.Migrations
 {
     [DbContext(typeof(NetflixContext))]
-    partial class NetflixContextModelSnapshot : ModelSnapshot
+    [Migration("20221012145014_FirstMigration")]
+    partial class FirstMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -41,29 +43,6 @@ namespace csharp_boolflix.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Actors");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "Scarlett",
-                            Nationality = "American",
-                            Surname = "Johansson"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "Elizabeth",
-                            Nationality = "American",
-                            Surname = "Olsen"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Name = "Cate",
-                            Nationality = "Australian",
-                            Surname = "Blanchett"
-                        });
                 });
 
             modelBuilder.Entity("ActorMovie", b =>
@@ -110,53 +89,6 @@ namespace csharp_boolflix.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Characteristics");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "Pegi 13"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "Pegi 16"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Name = "Pegi 18"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Name = "Violence"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Name = "Sex"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Name = "Drugs"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Name = "Splatter"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Name = "Racism"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            Name = "Children"
-                        });
                 });
 
             modelBuilder.Entity("CharacteristicMovie", b =>
@@ -211,26 +143,6 @@ namespace csharp_boolflix.Migrations
                     b.HasIndex("TVSerieId");
 
                     b.ToTable("Episodes");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Duration = 53,
-                            SeasonNumber = 1
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Duration = 45,
-                            SeasonNumber = 1
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Duration = 49,
-                            SeasonNumber = 2
-                        });
                 });
 
             modelBuilder.Entity("Genre", b =>
@@ -247,53 +159,6 @@ namespace csharp_boolflix.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Genres");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "Action"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "Adventure"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Name = "Fantasy"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Name = "Sci-Fi"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Name = "Horror"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Name = "Noir"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Name = "Drama"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Name = "Comedy"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            Name = "Love-Story"
-                        });
                 });
 
             modelBuilder.Entity("GenreMovie", b =>
@@ -355,29 +220,6 @@ namespace csharp_boolflix.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Movies");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Description = "ER MEJO",
-                            Duration = 122,
-                            Title = "LOTR 1"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Description = "ER PIU MEJO",
-                            Duration = 188,
-                            Title = "LOTR 2"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Description = "ER MEJO DER MEJO",
-                            Duration = 244,
-                            Title = "LOTR 3"
-                        });
                 });
 
             modelBuilder.Entity("TVSerie", b =>
@@ -409,29 +251,6 @@ namespace csharp_boolflix.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("TvSeries");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Description = "Mamma pare che sono santo",
-                            Seasons = 3,
-                            Title = "Padre Maronno"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Description = "Winchester with a winchester",
-                            Seasons = 15,
-                            Title = "Supernatural"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Description = "Tenet u' succ e mellone",
-                            Seasons = 1,
-                            Title = "Boris"
-                        });
                 });
 
             modelBuilder.Entity("ActorMovie", b =>
